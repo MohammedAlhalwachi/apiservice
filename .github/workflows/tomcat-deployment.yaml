@@ -1,0 +1,11 @@
+name: Deploying Springboot(War) to Tomcat on Azure Windows Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: 
+
+jobs:
+  name: Build Springboot Application
+  runs-on: ubuntu-latest
