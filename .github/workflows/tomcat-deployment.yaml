@@ -16,7 +16,6 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '17'
-          cache: 'maven'
 
       - name: Verify Java Version
         run: java -version
@@ -37,7 +36,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          local: "target\\apiservice-0.0.1-SNAPSHOT.war"
+          local: "target/apiservice-0.0.1-SNAPSHOT.war"
           remote: "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\apiservice.war"
-          pre_upload: echo "This will be executed before the upload!"  # Command to run via ssh before scp upload - REQUIRED false
-          post_upload: echo "This will be executed after the upload!"  # Command to run via ssh after scp upload - REQUIRED false
