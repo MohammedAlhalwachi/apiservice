@@ -11,11 +11,14 @@ jobs:
     name: Build Springboot Application
     runs-on: ubuntu-latest
     steps:
+#      - name: TEt
+#        run: echo ${{ secrets.HOST }} && echo ${{ secrets.USERNAME }} && echo ${{ secrets.PASSWORD }}
       - name: Install Java
         uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: '17'
+          cache: 'maven'
 
       - name: Verify Java Version
         run: java -version
@@ -32,9 +35,8 @@ jobs:
       - name: Deploy the Build to Tomcat
         uses: mdallasanta/ssh-scp-deploy@3898ca4aab25b988c09e51bacdd43c522c0fb319
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          local: "target/apiservice-0.0.1-SNAPSHOT.war"
+          host: 40.76.142.120
+          username: "MohammedAlhalwachi1"
+          password: "MohammedAlhalwachi1"
+          local: "./target/apiservice-0.0.1-SNAPSHOT.war"
           remote: "C:\\Program Files\\Apache Software Foundation\\Tomcat 10.1\\webapps\\apiservice.war"
