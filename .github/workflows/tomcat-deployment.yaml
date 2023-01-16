@@ -7,19 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  name: Build Springboot Application
-  runs-on: ubuntu-latest
-  steps:
-    - name: Install Java
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'corretto'
-        java-version: '17'
+  build-springboot-app:
+    name: Build Springboot Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '17'
 
-    - name: Verify the Build is Created or Not
-      run: java -version
-     
-    - name: Download the Code
-      uses: actions/checkout@v3
+      - name: Verify the Build is Created or Not
+        run: java -version
+       
+      - name: Download the Code
+        uses: actions/checkout@v3
 #    - name: Verify the Build is Created or Not
 #    - name: Deploy the Build to Tomcat
