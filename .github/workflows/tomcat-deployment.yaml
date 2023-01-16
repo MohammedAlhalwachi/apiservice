@@ -23,9 +23,11 @@ jobs:
 
       - name: Download the Code
         uses: actions/checkout@v3
-        
+
       - name: Build the Code
         run: chmod +x ./mvnw && ./mvnw package
 
-#    - name: Verify the Build is Created or Not
+      - name: Verify the Build is Created or Not
+        run: ls -l target/*.war
+
 #    - name: Deploy the Build to Tomcat
