@@ -3,7 +3,7 @@ name: Deploying Springboot(War) to Tomcat on Azure Windows Server
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
