@@ -31,7 +31,7 @@ jobs:
         run: ls -l target/*.war
 
       - name: Deploy the Build to Tomcat
-        uses: mdallasanta/ssh-scp-deploy@1.2.0
+        uses: mdallasanta/ssh-scp-deploy@3898ca4aab25b988c09e51bacdd43c522c0fb319
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
