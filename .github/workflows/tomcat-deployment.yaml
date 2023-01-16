@@ -18,7 +18,6 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '17'
-          cache: 'maven'
 
       - name: Verify Java Version
         run: java -version
