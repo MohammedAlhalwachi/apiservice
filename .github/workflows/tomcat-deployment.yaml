@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifact-1
-          path: target/*.war
+          path: target/apiservice-${{ github.run_number }}.war
   
   
   deploy-stage:
@@ -54,6 +54,6 @@ jobs:
           host: ${{ secrets.HOST }}
           user: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          local: artifact-1/*.war
-          remote: "C:/Program Files/Apache Software Foundation/Tomcat 10.1/webapps/apiservice.war"
+          local: artifact-1/apiservice-${{ github.run_number }}.war
+          remote: "C:/Program Files/Apache Software Foundation/Tomcat 10.1/webapps/"
           post_upload: Powershell.exe 'ls -l C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\*.war'
