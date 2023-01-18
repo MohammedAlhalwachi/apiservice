@@ -11,6 +11,9 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Download the Code
+        uses: actions/checkout@v3
+
       - name: Install Java
         uses: actions/setup-java@v3
         with:
@@ -20,9 +23,6 @@ jobs:
 
       - name: Verify Java Version
         run: java -version
-
-      - name: Download the Code
-        uses: actions/checkout@v3
 
       - name: modify pom.xml with version
         run: sed -i "s/VERSION_NUMBER/${{ github.run_number }}/g" pom.xml
