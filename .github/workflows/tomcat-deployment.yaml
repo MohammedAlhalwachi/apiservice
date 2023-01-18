@@ -45,6 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-stage
     steps:
+      - name: download artifact
+        uses: actions/download-artifact@v3
+
       - name: Transfer file
         uses: mdallasanta/ssh-scp-deploy@3898ca4aab25b988c09e51bacdd43c522c0fb319
         with:
