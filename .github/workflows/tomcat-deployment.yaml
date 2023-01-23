@@ -57,3 +57,11 @@ jobs:
           local: artifact-1/apiservice-${{ github.run_number }}.war
           remote: "C:/Program Files/Apache Software Foundation/Tomcat 10.1/webapps/"
           post_upload: Powershell.exe 'ls -l C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\*.war'
+  
+  verify-stage:
+    name: Verifications
+    runs-on: ubuntu-latest
+    needs: deploy-stage
+    steps:
+      - name: Version Check
+        run: curl http://${{ secrets.HOST }}:8080/apiservice-${{ github.RUN_NUMBER }}/version | grep REPLACE_VERSION
